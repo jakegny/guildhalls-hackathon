@@ -17,9 +17,14 @@ import { useSelector, useDispatch } from "react-redux";
 import Web3 from "web3";
 import detectEthereumProvider from "@metamask/detect-provider";
 import { connectMetaMask } from "../state/user/actions";
-import { setContractData } from "../state/contract/actions";
+import {
+  setWorkContractData,
+  setWorkContractFactoryData,
+} from "../state/contract/actions";
 import MetaMaskLogo from "../assets/metamask.svg";
 import Identity from "../abis/Identity.json";
+import WorkContract from "../abis/WorkContract.json";
+import WorkContractFactory from "../abis/WorkContractFactory.json";
 
 const LOGO = "GuildHall";
 
@@ -84,13 +89,30 @@ const ResponsiveAppBar = () => {
     // create a constant js variable networkId which
     //is set to blockchain network id
     const networkId = await web3.eth.net.getId();
-    const networkData = Identity.networks[networkId];
+    console.log("networkId", networkId);
+    // const networkData = Identity.networks[networkId];
+    const networkData = WorkContractFactory.networks[networkId];
+    console.log("networkData", networkData);
+    // TODO: this is how you get the address?
+    console.log();
     if (networkData) {
-      const abi = Identity.abi;
-      const address = networkData.address;
-      const contract = new web3.eth.Contract(abi, address);
+      // const abi = Identity.abi;
+      // const address = networkData.address;
+      // const contract = new web3.eth.Contract(abi, address);
+
+      const workContractFactoryABI = WorkContractFactory.abi;
+      const workContractFactoryAddress = networkData.address; // TODO: ???
+      const workContractFactoryContract = new web3.eth.Contract(
+        workContractFactoryABI,
+        workContractFactoryAddress,
+      );
+      dispatch(setWorkContractFactoryData(workContractFactoryContract));
+
+      // const abi = Identity.abi;
+      // const address = networkData.address;
+      // const contract = new web3.eth.Contract(abi, address);
+
       // TODO: move this to redux?
-      dispatch(setContractData(contract));
 
       // this.setState({ contract });
 

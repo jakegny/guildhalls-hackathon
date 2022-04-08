@@ -7,11 +7,18 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import PersonSearchIcon from "@mui/icons-material/PersonSearch";
 import WorkIcon from "@mui/icons-material/Work";
+import {
+  getContractsForClient,
+  newContract,
+  getOpenContracts,
+  assignWorker,
+} from "../utils/workContractFactoryUtils";
 
 async function getData(userAddress, contractMethods) {
-  const data = await contractMethods.tokensOfOwner(userAddress).call();
-  const uri = await contractMethods.tokenURI(data[0]).call();
-  console.log("uri", uri);
+  getContractsForClient(contractMethods);
+  // const data = await contractMethods.tokensOfOwner(userAddress).call();
+  // const uri = await contractMethods.tokenURI(data[0]).call();
+  // console.log("uri", uri);
 }
 
 export default function CreateIdentity() {
@@ -29,7 +36,7 @@ export default function CreateIdentity() {
   // };
 
   if (userAddress) {
-    getData(userAddress, contractMethods);
+    // getData(userAddress, contractMethods);
   }
 
   console.log("???!");
