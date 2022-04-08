@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import Web3 from "web3";
-import detectEthereumProvider from "@metamask/detect-provider";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Identity from "../abis/Identity.json";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Snackbar from "@mui/material/Snackbar";
@@ -32,83 +25,22 @@ class App extends Component {
     });
   }
 
-  async componentDidMount() {
-    await this.loadWeb3();
-    await this.loadBlockchainData();
-  }
-
-  // first up is to detect ethereum provider
-  async loadWeb3() {
-    if (typeof window.ethereum !== "undefined") {
-      console.log("MetaMask is installed!");
-    }
-
-    const provider = await detectEthereumProvider();
-    console.log("provider", provider);
-
-    // modern browsers
-    // if there is a provider then lets
-    // lets log that it's working and access the window from the doc
-    // to set Web3 to the provider
-
-    if (provider) {
-      console.log("ethereum wallet is connected");
-      window.web3 = new Web3(provider);
-    } else {
-      // no ethereum provider
-      console.log("no ethereum wallet detected");
-    }
-  }
-
-  async loadBlockchainData() {
-    const web3 = window.web3;
-    const accounts = await web3.eth.getAccounts();
-    this.setState({ account: accounts[0] });
-
-    // create a constant js variable networkId which
-    //is set to blockchain network id
-    const networkId = await web3.eth.net.getId();
-    const networkData = Identity.networks[networkId];
-    if (networkData) {
-      const abi = Identity.abi;
-      const address = networkData.address;
-      const contract = new web3.eth.Contract(abi, address);
-      // TODO: move this to redux?
-      this.setState({ contract });
-
-      // grab the total supply on the front end and log the results
-      // go to web3 doc and read up on methods and call
-      const totalSupply = await contract.methods.totalSupply().call();
-      this.setState({ totalSupply });
-      // set up an array to keep track of tokens
-      // load identity
-      for (let i = 1; i <= totalSupply; i++) {
-        const localId = await contract.methods.identities(i - 1).call();
-        // how should we handle the state on the front end?
-        this.setState({
-          identities: [...this.state.identities, localId],
-        });
-      }
-    } else {
-      window.alert("Smart contract not deployed");
-    }
-  }
-
   // with minting we are sending information and we need to specify the account
 
-  // TODO: Make this functional
-  mint = (addressId, idType, orgType) => {
-    this.state.contract.methods
-      .mint(addressId, idType, orgType)
-      .send({ from: this.state.account })
-      .once("receipt", receipt => {
-        this.setState({
-          identities: [...this.state.identities, Identity],
-        });
-      });
-  };
+  // // TODO: Make this functional
+  // mint = (addressId, idType, orgType) => {
+  //   this.state.contract.methods
+  //     .mint(addressId, idType, orgType)
+  //     .send({ from: this.state.account })
+  //     .once("receipt", receipt => {
+  //       this.setState({
+  //         identities: [...this.state.identities, Identity],
+  //       });
+  //     });
+  // };
 
   render() {
+    // console.log(this.state?.contract?.methods.balanceOf());
     return (
       <ThemeProvider theme={this.theme}>
         <Snackbar

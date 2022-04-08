@@ -14,6 +14,10 @@ export default function reducer(state = initialState, action) {
         isMetaMaskConnected: true,
         userAddress: action.payload.userAddress,
       };
+    case types.TOKENS_FOR_USER:
+      return {
+        ...state,
+      };
     default:
       return state;
   }

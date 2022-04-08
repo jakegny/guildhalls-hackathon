@@ -1,1 +1,1 @@
-export const SET_ABI = "CONTRACT/SET_ABI";
+export const SET_CONTRACT_DATA = "CONTRACT/SET_CONTRACT_DATA";

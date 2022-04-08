@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function CreateIdentity({ mint }) {
   const [addressId, setAddressId] = useState("");
   const [idType, setIdType] = useState("individual");
   const [orgType, setOrgType] = useState("");
+
+  const contractMethods = useSelector(state => state?.contract?.methods);
+  const userAddress = useSelector(state => state?.user?.userAddress);
 
   return (
     <div className='row'>
@@ -16,7 +20,25 @@ export default function CreateIdentity({ mint }) {
               console.log("addressId", addressId);
               console.log("idType", idType);
               console.log("orgType", orgType);
-              mint(addressId, idType, orgType);
+              // contractMethods
+              //   .mint(userAddress)
+              //   .send({ from: userAddress })
+              //   .once("receipt", receipt => {
+              //     console.log("receipt", receipt);
+              //   });
+
+              console.log(
+                "contractMethods",
+                contractMethods
+                  .awardItem(userAddress, "https://httpbin.org/json")
+                  .send({ from: userAddress })
+                  .once("receipt", receipt => {
+                    console.log("receipt", receipt);
+                  }),
+              );
+
+              //
+              // mint(addressId, idType, orgType);
             }}
           >
             <input

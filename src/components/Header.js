@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -14,8 +14,12 @@ import Container from "@mui/material/Container";
 import Tooltip from "@mui/material/Tooltip";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import Web3 from "web3";
+import detectEthereumProvider from "@metamask/detect-provider";
 import { connectMetaMask } from "../state/user/actions";
+import { setContractData } from "../state/contract/actions";
 import MetaMaskLogo from "../assets/metamask.svg";
+import Identity from "../abis/Identity.json";
 
 const LOGO = "GuildHall";
 
@@ -43,6 +47,70 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  // TODO: move to useEffect
+  useEffect(async () => {
+    await loadWeb3();
+    await loadBlockchainData();
+  }, []);
+
+  // first up is to detect ethereum provider
+  async function loadWeb3() {
+    if (typeof window.ethereum !== "undefined") {
+      console.log("MetaMask is installed!");
+    }
+
+    const provider = await detectEthereumProvider();
+
+    // modern browsers
+    // if there is a provider then lets
+    // lets log that it's working and access the window from the doc
+    // to set Web3 to the provider
+
+    if (provider) {
+      console.log("ethereum wallet is connected");
+      window.web3 = new Web3(provider);
+    } else {
+      // no ethereum provider
+      console.log("no ethereum wallet detected");
+    }
+  }
+
+  async function loadBlockchainData() {
+    const web3 = window.web3;
+    // const accounts = await web3.eth.getAccounts();
+    // this.setState({ account: accounts[0] });
+
+    // create a constant js variable networkId which
+    //is set to blockchain network id
+    const networkId = await web3.eth.net.getId();
+    const networkData = Identity.networks[networkId];
+    if (networkData) {
+      const abi = Identity.abi;
+      const address = networkData.address;
+      const contract = new web3.eth.Contract(abi, address);
+      // TODO: move this to redux?
+      dispatch(setContractData(contract));
+
+      // this.setState({ contract });
+
+      // // grab the total supply on the front end and log the results
+      // // go to web3 doc and read up on methods and call
+      // const totalSupply = await contract.methods.totalSupply().call();
+      // this.setState({ totalSupply });
+      // // set up an array to keep track of tokens
+      // // load identity
+      // for (let i = 1; i <= totalSupply; i++) {
+      //   const localId = await contract.methods.identities(i - 1).call();
+      //   // how should we handle the state on the front end?
+      //   this.setState({
+      //     identities: [...this.state.identities, localId],
+      //   });
+      // }
+    } else {
+      window.alert("Smart contract not deployed");
+    }
+  }
 
   return (
     <AppBar position='sticky'>
