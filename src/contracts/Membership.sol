@@ -6,9 +6,6 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./Base64.sol";
 
-// TODO
-// https://github.com/radek1st/time-locked-wallets/blob/master/contracts/TimeLockedWallet.sol
-
 // ON CHAIN Attributes
 
 // https://gist.github.com/Chmarusso/045ee79fa9a1fae55928a613044c9067

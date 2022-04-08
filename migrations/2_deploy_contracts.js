@@ -4,6 +4,6 @@ const Membership = artifacts.require("Membership");
 
 module.exports = function (deployer) {
   deployer.deploy(Identity);
-  deployer.deploy(Guild);
-  deployer.deploy(Membership);
+  // deployer.deploy(Guild);
+  // deployer.deploy(Membership);
 };

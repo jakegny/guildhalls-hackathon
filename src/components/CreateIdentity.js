@@ -27,15 +27,12 @@ export default function CreateIdentity({ mint }) {
               //     console.log("receipt", receipt);
               //   });
 
-              console.log(
-                "contractMethods",
-                contractMethods
-                  .awardItem(userAddress, "https://httpbin.org/json")
-                  .send({ from: userAddress })
-                  .once("receipt", receipt => {
-                    console.log("receipt", receipt);
-                  }),
-              );
+              contractMethods
+                .awardItem(userAddress, "https://httpbin.org/json")
+                .send({ from: userAddress })
+                .once("receipt", receipt => {
+                  console.log("receipt", receipt);
+                });
 
               //
               // mint(addressId, idType, orgType);
