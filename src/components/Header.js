@@ -23,7 +23,6 @@ import {
 } from "../state/contract/actions";
 import MetaMaskLogo from "../assets/metamask.svg";
 import Identity from "../abis/Identity.json";
-import WorkContract from "../abis/WorkContract.json";
 import WorkContractFactory from "../abis/WorkContractFactory.json";
 
 const LOGO = "GuildHall";

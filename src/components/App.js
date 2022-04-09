@@ -9,6 +9,7 @@ import "./App.css";
 import CreateIdentity from "./CreateIdentity";
 import HireAPro from "./HireAPro";
 import MyOpenContracts from "./MyOpenContracts";
+import ContractBids from "./ContractBids";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -63,6 +64,7 @@ class App extends Component {
               />
               <Route path='/hireAPro' element={<HireAPro />} />
               <Route path='/myOpenContracts' element={<MyOpenContracts />} />
+              <Route path='/contractBids' element={<ContractBids />} />
             </Routes>
           </div>
         </Router>
