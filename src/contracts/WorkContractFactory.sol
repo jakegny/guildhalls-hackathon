@@ -28,7 +28,7 @@ contract WorkContractFactory {
 				openContracts.push(workContract);
 
 				emit ContractCreated(address(workContract));
-				return address(workContract); // Do I need this if I am emitting?
+				return address(workContract);
     }
 
 
@@ -36,8 +36,8 @@ contract WorkContractFactory {
 			return openContracts;
 	 }
 
-	 function assignWorker(WorkContract workContract, address payable _workerAddress) public {
-		 	workContract.assignWorker(_workerAddress);
+	 function delistContract(WorkContract workContract, address payable _workerAddress) public {
+		 	// workContract.assignWorker(_workerAddress); // TODO: what is a safe way to do this?
 
 			// remove from open contracts
 			for(uint i = 0; i < openContracts.length; i++) {

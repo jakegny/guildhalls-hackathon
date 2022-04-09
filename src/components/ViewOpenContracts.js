@@ -54,8 +54,13 @@ export default function ViewOpenContracts() {
 
     if (!window.ethereum.selectedAddress) return;
     const oc = await getOpenContracts();
+    // TODO: fix this filter in the contract, shouldn't be returning
+    // console.log("oc", oc); //.filter(c => c === "0x0000000000000000000000000000000000000000"))
+    const filteredOc = oc.filter(
+      oc => oc !== "0x0000000000000000000000000000000000000000",
+    );
 
-    setOpenContracts(oc);
+    setOpenContracts(filteredOc);
   }, []);
 
   const handleClick = c => () => {

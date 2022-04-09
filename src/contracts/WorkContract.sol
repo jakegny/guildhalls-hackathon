@@ -25,6 +25,7 @@ contract WorkContract {
     address[] biddingAddresses;
 	mapping(address => uint) bids;
 	uint acceptedBid;
+    address acceptedBidderAddress;
 
 	uint requestedDrawValue;
 	bool isDrawApproved;
@@ -47,8 +48,8 @@ contract WorkContract {
 				TypeOfWork tow
     ) {
         client = _client;
-				typeOfWork = tow;
-				status = Status.BIDDING;
+		typeOfWork = tow;
+		status = Status.BIDDING;
 
 				// TODO: statementOfWork;
     }
@@ -65,6 +66,10 @@ contract WorkContract {
       return TypeOfWorkStr[enumIndex];
    }
 
+	 function getWorker() public view returns (address) {
+		 return worker;
+	 }
+
 	 function getRequestedDrawValue() public view returns (uint) {
       return requestedDrawValue;
    }
@@ -75,6 +80,7 @@ contract WorkContract {
 	 }
 
 	 // TODO: require a verified worker token?
+     // TODO: can't be the contract owner
 	 function bidWork(uint bid) public {
          biddingAddresses.push(msg.sender);
 		 bids[msg.sender] = bid;
@@ -84,19 +90,25 @@ contract WorkContract {
          return biddingAddresses;
      }
 
-     function getBidByAddress(address bidAddress) public view returns (uint) {
+     function getBidByAddress(address bidAddress) onlyClient public view returns (uint) {
          return bids[bidAddress];
      }
 
+     // 
 	 function acceptBid(address _worker) onlyClient public  {
 		 acceptedBid = bids[_worker];
+         acceptedBidderAddress = _worker;
 		 status = Status.PENDING;
 			// TODO: event
 	 }
 
+     function getAcceptedBidder() onlyClient public view returns (address) {
+         return acceptedBidderAddress;
+     }
+
 		function workStarted() onlyClient public payable {
 			// ensure client has enough to pay
-      // NOTE: client.balance in gwei?
+            // NOTE: client.balance in gwei?
 			require(client.balance >= msg.value, "Client does not have enough liquidity to start work.");
 			
 			// ensure the value being sent matches the bid

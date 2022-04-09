@@ -53,6 +53,7 @@ const ResponsiveAppBar = () => {
             noWrap
             component='div'
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            onClick={() => navigate("/")}
           >
             {LOGO}
           </Typography>
@@ -109,6 +110,7 @@ const ResponsiveAppBar = () => {
             noWrap
             component='div'
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
+            onClick={() => navigate("/")}
           >
             {LOGO}
           </Typography>

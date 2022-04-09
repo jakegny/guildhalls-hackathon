@@ -73,7 +73,7 @@ export default function Home() {
                 }}
               />
               <Typography variant='h5' component='div'>
-                Mangage your work
+                Bid Jobs
               </Typography>
             </CardContent>
           </Card>

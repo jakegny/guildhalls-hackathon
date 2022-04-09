@@ -26,8 +26,17 @@ export async function getOpenContracts() {
   return contract.getOpenContracts();
 }
 
-// TODO:
-// export async function assignWorker() {}
+export async function delistContract(workContractAddress, workerAddress) {
+  const contract = await getContract();
+  const unsignedTx = await contract.populateTransaction["delistContract"](
+    workContractAddress,
+    workerAddress,
+  );
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const data = await signer.sendTransaction(unsignedTx);
+  return data;
+}
 
 let CONTRACT = null;
 

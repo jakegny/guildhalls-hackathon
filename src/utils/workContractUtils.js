@@ -8,13 +8,37 @@ export async function makeInteractableContract(address, makeSigner = false) {
   return contract;
 }
 
-export function getStatementOfWork() {}
+export async function getStatementOfWork() {}
 
-export function getStatus() {}
+export async function getStatus(contract) {
+  const mapping = [
+    "BIDDING",
+    "PENDING",
+    "IN_PROGRESS",
+    "HALTED",
+    "DISPUTED",
+    "COMPLETE",
+    "INCOMPLETE",
+    "CHANGE_REQUEST",
+  ];
 
-export function getRequestedDrawValue() {}
+  // TODO: contract conversion?
+  const status = await contract.getStatus();
+  console.log("status--", status);
+  return mapping[status];
+}
 
-export function assignWorker() {}
+export async function getRequestedDrawValue() {}
+
+export async function assignWorker(contract, workerAddress) {
+  const unsignedTx = await contract.populateTransaction["assignWorker"](
+    workerAddress,
+  );
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const data = await signer.sendTransaction(unsignedTx);
+  return data;
+}
 
 // https://stackoverflow.com/questions/68198724/how-would-i-send-an-eth-value-to-specific-smart-contract-function-that-is-payabl
 export async function bidWork(contract, bid) {
@@ -28,30 +52,53 @@ export async function bidWork(contract, bid) {
   return data;
 }
 
-export function acceptBid() {}
+export async function acceptBid(contract, bidderAddress) {
+  const unsignedTx = await contract.populateTransaction["acceptBid"](
+    bidderAddress,
+  );
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const data = await signer.sendTransaction(unsignedTx);
+  return data;
+}
 
-export function workStarted() {}
+export async function workStarted(contract) {
+  // const bid =
+  const acceptedBid = await getAcceptedBid(contract);
+  const unsignedTx = await contract.populateTransaction["workStarted"]({
+    value: acceptedBid.bid,
+  });
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const data = await signer.sendTransaction(unsignedTx);
+  return data;
+}
 
-export function changeWorkStatus() {}
+export async function changeWorkStatus() {}
 
-export function contractComplete() {}
+export async function contractComplete() {}
 
-export function disputeContract() {}
+export async function disputeContract() {}
 
-export function releaseDispute() {}
+export async function releaseDispute() {}
 
-export function requestDraw() {}
+export async function requestDraw() {}
 
-export function approveDraw() {}
+export async function approveDraw() {}
 
-export function withdrawFunds() {}
+export async function withdrawFunds() {}
 
-export function changeRequest() {}
+export async function changeRequest() {}
+
+export async function getWorker(contract) {
+  const worker = await contract.getWorker();
+  if (worker === "0x0000000000000000000000000000000000000000") return null;
+  return worker;
+}
 
 // https://stackoverflow.com/questions/37606839/how-to-return-mapping-list-in-solidity-ethereum-contract
 export async function getBids(contract) {
   const biddingAddress = await contract.getBiddingAddress();
-  console.log("biddingAddress", biddingAddress);
 
   let result = {};
   for (let ba of biddingAddress) {
@@ -73,4 +120,17 @@ export async function getTypeOfWork(contract) {
 export async function getNumberOfBids(contract) {
   const numOfBids = await contract.getBiddingAddress();
   return numOfBids.length;
+}
+
+export async function getAcceptedBid(contract) {
+  const acceptedBidder = await contract.getAcceptedBidder();
+  // TODO: fix this in the contract
+  if (acceptedBidder === "0x0000000000000000000000000000000000000000")
+    return null;
+  const bid = await contract.getBidByAddress(acceptedBidder);
+  // return contract.methods.bids.call();
+  return {
+    address: acceptedBidder,
+    bid,
+  };
 }
