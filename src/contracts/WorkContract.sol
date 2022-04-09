@@ -18,7 +18,8 @@ contract WorkContract {
 	address payable worker;
 	string statementOfWork; // TODO: needs lots more thought, probably file. Hashed statement of work?
 
-	mapping(address => uint) public bids;
+  address[] biddingAddresses;
+	mapping(address => uint) bids;
 	uint acceptedBid;
 
 	uint requestedDrawValue;
@@ -41,38 +42,43 @@ contract WorkContract {
         address _client,
 				TypeOfWork tow
     ) {
-        client = _client;
-				typeOfWork = tow;
-				status = Status.BIDDING;
+			client = _client;
+			typeOfWork = tow;
+			status = Status.BIDDING;
 
-				// TODO: statementOfWork;
-    }
+			// TODO: statementOfWork;
+	}
 
-		function getStatementOfWork() public view returns (string memory) {
+	function getStatementOfWork() public view returns (string memory) {
 			return statementOfWork;
+	}
+
+	function getStatus() public view returns (Status) {
+		return status;
+	}
+
+	function getRequestedDrawValue() public view returns (uint) {
+		return requestedDrawValue;
+	}
+
+	function assignWorker(address payable _worker) onlyClient public  {
+		worker = _worker;
+		// TODO: event?
+	}
+
+	// TODO: require a verified worker token?
+	function bidWork(uint bid) public {
+		biddingAddresses.push(msg.sender);
+		bids[msg.sender] = bid;
+	}
+
+		function getBiddingAddress() onlyClient public view returns (address[] memory) {
+				return biddingAddresses;
 		}
 
-   function getStatus() public view returns (Status) {
-      return status;
-   }
-
-	 function getRequestedDrawValue() public view returns (uint) {
-      return requestedDrawValue;
-   }
-
-   function getDefaultChoice() public pure returns (uint) {
-      return uint(initialState);
-   }
-
-	 function assignWorker(address payable _worker) onlyClient public  {
-		 worker = _worker;
-		 // TODO: event?
-	 }
-
-	 // TODO: require a verified worker token?
-	 function bidWork(uint bid) public {
-		 bids[msg.sender] = bid;
-	 }
+		function getBidByAddress(address bidAddress) public view returns (uint) {
+				return bids[bidAddress];
+		}
 
 	 function acceptBid(address _worker) onlyClient public  {
 		 acceptedBid = bids[_worker];
@@ -162,20 +168,6 @@ contract WorkContract {
 		}
 
 		// TODO: need a way for the client to withdraw funds
-
-
-// Functions
-//                   Request work (client)
-//                   Bid work (guild)
-//                   Accept bid (client)
-//                   Accept work (guild)
-//                   Sign contract (both) 
-//                   Work started (client) locks funds
-//                   Dispute (both)
-//                   WorkComplete 
-//                   ChangeOrder
-//                   WorkIncomplete
-//                   RequestDraw
 
 }
 

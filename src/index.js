@@ -6,6 +6,7 @@ import App from "./components/App";
 import getStore from "./state/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
+import detectEthereumProvider from "@metamask/detect-provider";
 
 const { store, persistor } = getStore();
 

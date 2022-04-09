@@ -1,52 +1,30 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import Grid from "@mui/material/Grid";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import CardActions from "@mui/material/CardActions";
-import Select from "@mui/material/Select";
-import Button from "@mui/material/Button";
-import PersonSearchIcon from "@mui/icons-material/PersonSearch";
-import WorkIcon from "@mui/icons-material/Work";
-import {
-  getContractsForClient,
-  newContract,
-  getOpenContracts,
-  assignWorker,
-} from "../utils/workContractFactoryUtils";
-import * as TypeOfWork from "../utils/TypeOfWork";
+import { getBids } from "../utils/workContractUtils";
 import WorkContract from "../abis/WorkContract.json";
+import Web3 from "web3";
+import detectEthereumProvider from "@metamask/detect-provider";
+import { ethers } from "ethers";
 
 export default function ContractBids() {
-  const workContractFactoryMethods = useSelector(
-    state => state?.contract?.workContractFactory?.methods,
-  );
-  const userAddress = useSelector(state => state?.user?.userAddress);
-  const [openContracts, setOpenContracts] = useState([]); // TODO: move to redux
+  const { address } = useParams();
+  // const provider = await detectEthereumProvider();
 
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const web3 = new Web3(provider);
+  // console.log("window.ethereum", window.ethereum);
+  // const contract = new window.web3.eth.Contract(WorkContract.abi, address);
+  // useEffect(() => {
 
-  useEffect(async () => {
-    if (!userAddress) return;
-    if (!workContractFactoryMethods.getContractsForClient) return;
-    const oc = await getContractsForClient(
-      workContractFactoryMethods,
-      userAddress,
-    );
-    console.log("openContracts", oc);
+  //   console.log("bids", bids);
+  // }, []);
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const contract = new ethers.Contract(address, WorkContract.abi, provider);
 
-    // TODO: loadWorkContracts
-    const newOc = oc.map(c => {
-      return new window.web3.eth.Contract(WorkContract.abi, c);
-    });
-    console.log("newOc", newOc);
+  const bids = getBids(contract);
 
-    setOpenContracts(newOc);
-  }, [userAddress]);
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
 
   return (
     <div>

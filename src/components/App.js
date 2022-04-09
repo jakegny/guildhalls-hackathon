@@ -1,8 +1,10 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Identity from "../abis/Identity.json";
+import { useSelector, useDispatch } from "react-redux";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Snackbar from "@mui/material/Snackbar";
+import Web3 from "web3";
+import detectEthereumProvider from "@metamask/detect-provider";
 import Header from "./Header";
 import Home from "./Home";
 import "./App.css";
@@ -10,137 +12,75 @@ import CreateIdentity from "./CreateIdentity";
 import HireAPro from "./HireAPro";
 import MyOpenContracts from "./MyOpenContracts";
 import ContractBids from "./ContractBids";
-class App extends Component {
-  constructor(props) {
-    super(props);
-    // TODO: move this to Redux
-    this.state = {
-      account: "",
-      contract: null,
-      totalSupply: 0,
-      identities: [],
-    };
-    this.theme = createTheme({
-      palette: {
-        mode: "dark",
-      },
-    });
+import { connectMetaMask, setMetaMaskConnected } from "../state/user/actions";
+import {
+  setWorkContractData,
+  setWorkContractFactoryData,
+} from "../state/contract/actions";
+import WorkContractFactory from "../abis/WorkContractFactory.json";
+import { ethers } from "ethers";
+
+export default function App() {
+  const theme = createTheme({
+    palette: {
+      mode: "dark",
+    },
+  });
+
+  const dispatch = useDispatch();
+
+  useEffect(async () => {
+    await loadWeb3();
+    // await loadBlockchainData();
+  }, []);
+
+  // const workContractFactoryMethods = useSelector(
+  //   state => state?.contract?.workContractFactory?.methods,
+  // );
+
+  // first up is to detect ethereum provider
+  async function loadWeb3() {
+    if (typeof window.ethereum !== "undefined") {
+      console.log("MetaMask is installed!");
+    }
+
+    // const provider = await detectEthereumProvider();
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+    // console.log("provider", provider, Object.keys(provider));
+    dispatch(setMetaMaskConnected(provider.selectedAddress));
+    window.web3 = new Web3(Web3.givenProvider);
   }
 
-  // with minting we are sending information and we need to specify the account
-
-  // // TODO: Make this functional
-  // mint = (addressId, idType, orgType) => {
-  //   this.state.contract.methods
-  //     .mint(addressId, idType, orgType)
-  //     .send({ from: this.state.account })
-  //     .once("receipt", receipt => {
-  //       this.setState({
-  //         identities: [...this.state.identities, Identity],
-  //       });
-  //     });
-  // };
-
-  render() {
-    // console.log(this.state?.contract?.methods.balanceOf());
-    return (
-      <ThemeProvider theme={this.theme}>
-        <Snackbar
-          anchorOrigin={{ vertical: "top", horizontal: "center" }}
-          // open={isOpen}
-          // onClose={() => setIsOpen(false)}
-          // message={message}
-          autoHideDuration={5000}
-          // onClick={() => setIsOpen(false)}
-        />
-        <Router>
-          <div>
-            <Header />
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route
-                path='/issueIdentity'
-                element={<CreateIdentity mint={this.mint} />}
-              />
-              <Route path='/hireAPro' element={<HireAPro />} />
-              <Route path='/myOpenContracts' element={<MyOpenContracts />} />
-              <Route path='/contractBids' element={<ContractBids />} />
-            </Routes>
-          </div>
-        </Router>
-      </ThemeProvider>
-    );
-
-    // return (
-    //   <div className='container-filled'>
-    //     {console.log(this.state.identities)}
-    //     <nav
-    //       className='navbar navbar-dark fixed-top
-    //             bg-dark flex-md-nowrap p-0 shadow'
-    //     >
-    //       <div
-    //         className='navbar-brand col-sm-3 col-md-3
-    //             mr-0'
-    //         style={{ color: "white" }}
-    //       >
-    //         The GuildHall
-    //       </div>
-    //       <ul className='navbar-nav px-3'>
-    //         <li
-    //           className='nav-item text-nowrap
-    //             d-none d-sm-none d-sm-block
-    //             '
-    //         >
-    //           <small className='text-white'>{this.state.account}</small>
-    //         </li>
-    //       </ul>
-    //       <button
-    //         onClick={async () => {
-    //           // window.ethereum.request({ method: "eth_requestAccounts" });
-    //           const accounts = await window.ethereum.request({
-    //             method: "eth_requestAccounts",
-    //           });
-    //           const account = accounts[0];
-    //           this.setState({ account });
-    //         }}
-    //       >
-    //         Connect
-    //       </button>
-    //     </nav>
-
-    //     <div className='container-fluid mt-1'>
-    //       <CreateIdentity mint={this.mint} />
-    //       <hr></hr>
-    //       <div className='row textCenter'>
-    //         {this.state.identities.map((identity, key) => {
-    //           return (
-    //             <div>
-    //               <div>
-    //                 <MDBCard
-    //                   className='token img'
-    //                   style={{ maxWidth: "22rem" }}
-    //                 >
-    //                   <MDBCardImage
-    //                     src={identity}
-    //                     position='top'
-    //                     height='250rem'
-    //                     style={{ marginRight: "4px" }}
-    //                   />
-    //                   <MDBCardBody>
-    //                     <MDBCardTitle> Identities </MDBCardTitle>
-    //                     <MDBCardText> TODO</MDBCardText>
-    //                     <MDBBtn href={identity}>Download</MDBBtn>
-    //                   </MDBCardBody>
-    //                 </MDBCard>
-    //               </div>
-    //             </div>
-    //           );
-    //         })}
-    //       </div>
-    //     </div>
-    //   </div>
-    // );
+  if (!window.ethereum) {
+    return null;
   }
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Snackbar
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        // open={isOpen}
+        // onClose={() => setIsOpen(false)}
+        // message={message}
+        autoHideDuration={5000}
+        // onClick={() => setIsOpen(false)}
+      />
+      <Router>
+        <div>
+          <Header />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/issueIdentity' element={<CreateIdentity />} />
+            <Route path='/hireAPro' element={<HireAPro />} />
+            <Route path='/myOpenContracts' element={<MyOpenContracts />} />
+            {/* <Route path='/contractBids' element={<ContractBids />} /> */}
+            <Route path='/contractBids' element={<ContractBids />}>
+              <Route path='/contractBids/:address' element={<ContractBids />} />
+            </Route>
+          </Routes>
+        </div>
+      </Router>
+    </ThemeProvider>
+  );
 }
-
-export default App;

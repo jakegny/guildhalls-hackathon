@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -14,16 +14,8 @@ import Container from "@mui/material/Container";
 import Tooltip from "@mui/material/Tooltip";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import Web3 from "web3";
-import detectEthereumProvider from "@metamask/detect-provider";
-import { connectMetaMask, setMetaMaskConnected } from "../state/user/actions";
-import {
-  setWorkContractData,
-  setWorkContractFactoryData,
-} from "../state/contract/actions";
+import { connectMetaMask } from "../state/user/actions";
 import MetaMaskLogo from "../assets/metamask.svg";
-import Identity from "../abis/Identity.json";
-import WorkContractFactory from "../abis/WorkContractFactory.json";
 
 const LOGO = "GuildHall";
 
@@ -51,82 +43,6 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
-  useEffect(async () => {
-    await loadWeb3();
-    await loadBlockchainData();
-  }, []);
-
-  // first up is to detect ethereum provider
-  async function loadWeb3() {
-    if (typeof window.ethereum !== "undefined") {
-      console.log("MetaMask is installed!");
-    }
-
-    const provider = await detectEthereumProvider();
-
-    // modern browsers
-    // if there is a provider then lets
-    // lets log that it's working and access the window from the doc
-    // to set Web3 to the provider
-
-    if (provider) {
-      dispatch(setMetaMaskConnected(provider.selectedAddress));
-      window.web3 = new Web3(provider);
-    } else {
-      // no ethereum provider
-      console.log("no ethereum wallet detected");
-    }
-  }
-
-  async function loadBlockchainData() {
-    const web3 = window.web3;
-    // const accounts = await web3.eth.getAccounts();
-    // this.setState({ account: accounts[0] });
-
-    // create a constant js variable networkId which
-    //is set to blockchain network id
-    const networkId = await web3.eth.net.getId();
-    // const networkData = Identity.networks[networkId];
-    const networkData = WorkContractFactory.networks[networkId];
-    if (networkData) {
-      // const abi = Identity.abi;
-      // const address = networkData.address;
-      // const contract = new web3.eth.Contract(abi, address);
-
-      const workContractFactoryABI = WorkContractFactory.abi;
-      const workContractFactoryAddress = networkData.address; // TODO: ???
-      const workContractFactoryContract = new web3.eth.Contract(
-        workContractFactoryABI,
-        workContractFactoryAddress,
-      );
-      dispatch(setWorkContractFactoryData(workContractFactoryContract));
-
-      // const abi = Identity.abi;
-      // const address = networkData.address;
-      // const contract = new web3.eth.Contract(abi, address);
-
-      // TODO: move this to redux?
-
-      // this.setState({ contract });
-
-      // // grab the total supply on the front end and log the results
-      // // go to web3 doc and read up on methods and call
-      // const totalSupply = await contract.methods.totalSupply().call();
-      // this.setState({ totalSupply });
-      // // set up an array to keep track of tokens
-      // // load identity
-      // for (let i = 1; i <= totalSupply; i++) {
-      //   const localId = await contract.methods.identities(i - 1).call();
-      //   // how should we handle the state on the front end?
-      //   this.setState({
-      //     identities: [...this.state.identities, localId],
-      //   });
-      // }
-    } else {
-      window.alert("Smart contract not deployed");
-    }
-  }
 
   return (
     <AppBar position='sticky'>
@@ -178,6 +94,14 @@ const ResponsiveAppBar = () => {
               >
                 <Typography textAlign='center'>Create Identity</Typography>
               </MenuItem>
+              <MenuItem
+                key={"myOpenContracts"}
+                onClick={() => {
+                  navigate("/myOpenContracts");
+                }}
+              >
+                <Typography textAlign='center'>My Open Contracts</Typography>
+              </MenuItem>
             </Menu>
           </Box>
           <Typography
@@ -203,6 +127,15 @@ const ResponsiveAppBar = () => {
               sx={{ my: 2, color: "white", display: "block" }}
             >
               Create Identity
+            </Button>
+            <Button
+              key={"myOpenContracts"}
+              onClick={() => {
+                navigate("/myOpenContracts");
+              }}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              My Open Contracts
             </Button>
           </Box>
 

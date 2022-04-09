@@ -13,7 +13,8 @@ export const setWorkContractData = contract => {
   };
 };
 
-export const setWorkContractFactoryData = contract => {
+export const setWorkContractFactoryData = contractMethods => {
+  console.log("contractMethods", contractMethods);
   // properties to keep:
   /*
 	methods
@@ -21,6 +22,6 @@ export const setWorkContractFactoryData = contract => {
 	*/
   return {
     type: types.SET_WORK_CONTRACT_FACTORY_DATA,
-    payload: contract,
+    payload: { methods: contractMethods },
   };
 };

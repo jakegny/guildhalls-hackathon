@@ -8,30 +8,8 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import PersonSearchIcon from "@mui/icons-material/PersonSearch";
 import WorkIcon from "@mui/icons-material/Work";
-import {
-  getContractsForClient,
-  newContract,
-  getOpenContracts,
-  assignWorker,
-} from "../utils/workContractFactoryUtils";
+import { getOpenContracts } from "../utils/workContractFactoryUtils";
 import * as TypeOfWork from "../utils/TypeOfWork";
-
-async function getData(userAddress, contractMethods) {
-  // const data = await getContractsForClient(contractMethods, userAddress);
-
-  const createdContract = await newContract(
-    contractMethods,
-    userAddress,
-    TypeOfWork.ELECTRICAL,
-  );
-  console.log("createdContract", createdContract); // Add this into redux state.
-
-  const openContracts = await getOpenContracts(contractMethods);
-
-  // const data = await contractMethods.tokensOfOwner(userAddress).call();
-  // const uri = await contractMethods.tokenURI(data[0]).call();
-  console.log("openContracts", openContracts);
-}
 
 export default function Home() {
   const navigate = useNavigate();

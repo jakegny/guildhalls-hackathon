@@ -99,12 +99,6 @@ export default function HireAPro() {
                 onClick={async () => {
                   setOpen(false);
                   setContractCreatedSuccessfully(false);
-                  // const createdContract = await newContract(
-                  //   workContractFactoryMethods,
-                  //   userAddress,
-                  //   typeOfWork,
-                  // );
-                  // TODO: loading
                   navigate("/myOpenContracts");
                 }}
               >
@@ -167,11 +161,7 @@ export default function HireAPro() {
                   key={"postContract"}
                   onClick={async () => {
                     setOpen(true);
-                    const createdContract = await newContract(
-                      workContractFactoryMethods,
-                      userAddress,
-                      typeOfWork,
-                    );
+                    const createdContract = await newContract(typeOfWork);
                     // TODO: loading
                     console.log("createdContract", createdContract);
                     setShowConfetti(true);
