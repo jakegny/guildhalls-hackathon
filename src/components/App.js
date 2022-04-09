@@ -7,7 +7,8 @@ import Header from "./Header";
 import Home from "./Home";
 import "./App.css";
 import CreateIdentity from "./CreateIdentity";
-
+import HireAPro from "./HireAPro";
+import MyOpenContracts from "./MyOpenContracts";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -60,6 +61,8 @@ class App extends Component {
                 path='/issueIdentity'
                 element={<CreateIdentity mint={this.mint} />}
               />
+              <Route path='/hireAPro' element={<HireAPro />} />
+              <Route path='/myOpenContracts' element={<MyOpenContracts />} />
             </Routes>
           </div>
         </Router>

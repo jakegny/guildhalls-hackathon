@@ -27,7 +27,8 @@ contract WorkContractFactory {
         workContracts[msg.sender].push(address(workContract));
 				openContracts.push(workContract);
 
-				return address(workContract);
+				emit ContractCreated(address(workContract));
+				return address(workContract); // Do I need this if I am emitting?
     }
 
 
@@ -49,7 +50,6 @@ contract WorkContractFactory {
 	 }
 
 
-		// TODO: update this
-    event Created(address wallet, address from, address to, uint256 createdAt, uint256 unlockDate, uint256 amount);
+    event ContractCreated(address wallet);
 
 }

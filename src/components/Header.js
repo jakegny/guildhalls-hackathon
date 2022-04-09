@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Web3 from "web3";
 import detectEthereumProvider from "@metamask/detect-provider";
-import { connectMetaMask } from "../state/user/actions";
+import { connectMetaMask, setMetaMaskConnected } from "../state/user/actions";
 import {
   setWorkContractData,
   setWorkContractFactoryData,
@@ -53,7 +53,6 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
 
-  // TODO: move to useEffect
   useEffect(async () => {
     await loadWeb3();
     await loadBlockchainData();
@@ -73,7 +72,7 @@ const ResponsiveAppBar = () => {
     // to set Web3 to the provider
 
     if (provider) {
-      console.log("ethereum wallet is connected");
+      dispatch(setMetaMaskConnected(provider.selectedAddress));
       window.web3 = new Web3(provider);
     } else {
       // no ethereum provider
@@ -89,12 +88,8 @@ const ResponsiveAppBar = () => {
     // create a constant js variable networkId which
     //is set to blockchain network id
     const networkId = await web3.eth.net.getId();
-    console.log("networkId", networkId);
     // const networkData = Identity.networks[networkId];
     const networkData = WorkContractFactory.networks[networkId];
-    console.log("networkData", networkData);
-    // TODO: this is how you get the address?
-    console.log();
     if (networkData) {
       // const abi = Identity.abi;
       // const address = networkData.address;

@@ -2,7 +2,6 @@ import axios from "axios";
 import * as types from "./types";
 
 export const setWorkContractData = contract => {
-  console.log("contract", contract);
   // properties to keep:
   /*
 	methods
@@ -15,7 +14,6 @@ export const setWorkContractData = contract => {
 };
 
 export const setWorkContractFactoryData = contract => {
-  console.log("contract", contract);
   // properties to keep:
   /*
 	methods

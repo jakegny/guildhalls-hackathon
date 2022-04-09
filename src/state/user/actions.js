@@ -1,12 +1,14 @@
 import axios from "axios";
 import * as types from "./types";
 
-// export const clearQRCode = () => {
-//   return {
-//     type: types.CLEAR_QR_CODE,
-//     payload: {},
-//   };
-// };
+export const setMetaMaskConnected = account => {
+  return {
+    type: types.CONNECT_METAMASK,
+    payload: {
+      userAddress: account,
+    },
+  };
+};
 
 // connect metamask
 export const connectMetaMask = navigate => async dispatch => {

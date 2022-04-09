@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
@@ -13,33 +14,37 @@ import {
   getOpenContracts,
   assignWorker,
 } from "../utils/workContractFactoryUtils";
+import * as TypeOfWork from "../utils/TypeOfWork";
 
 async function getData(userAddress, contractMethods) {
-  getContractsForClient(contractMethods);
+  // const data = await getContractsForClient(contractMethods, userAddress);
+
+  const createdContract = await newContract(
+    contractMethods,
+    userAddress,
+    TypeOfWork.ELECTRICAL,
+  );
+  console.log("createdContract", createdContract); // Add this into redux state.
+
+  const openContracts = await getOpenContracts(contractMethods);
+
   // const data = await contractMethods.tokensOfOwner(userAddress).call();
   // const uri = await contractMethods.tokenURI(data[0]).call();
-  // console.log("uri", uri);
+  console.log("openContracts", openContracts);
 }
 
-export default function CreateIdentity() {
-  const contractMethods = useSelector(state => state?.contract?.methods);
+export default function Home() {
+  const navigate = useNavigate();
+
+  const workContractFactoryMethods = useSelector(
+    state => state?.contract?.workContractFactory?.methods,
+  );
   const userAddress = useSelector(state => state?.user?.userAddress);
-  // mint = (addressId, idType, orgType) => {
-  //   this.state.contract.methods
-  //     .mint(addressId, idType, orgType)
-  //     .send({ from: this.state.account })
-  // .once("receipt", receipt => {
-  //   this.setState({
-  //     identities: [...this.state.identities, Identity],
-  //   });
-  // });
-  // };
 
   if (userAddress) {
-    // getData(userAddress, contractMethods);
+    // getData(userAddress, workContractFactoryMethods);
   }
 
-  console.log("???!");
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
@@ -51,7 +56,9 @@ export default function CreateIdentity() {
               mx: 5,
               my: 2,
             }}
-            onClick={() => console.log("looking to hire")}
+            onClick={() => {
+              navigate("/hireAPro");
+            }}
             alignItems='center'
             justifyContent='center'
           >
