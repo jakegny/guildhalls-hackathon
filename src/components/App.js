@@ -8,17 +8,14 @@ import detectEthereumProvider from "@metamask/detect-provider";
 import Header from "./Header";
 import Home from "./Home";
 import "./App.css";
+import { setMetaMaskConnected } from "../state/user/actions";
+import { ethers } from "ethers";
 import CreateIdentity from "./CreateIdentity";
 import HireAPro from "./HireAPro";
 import MyOpenContracts from "./MyOpenContracts";
+import ViewOpenContracts from "./ViewOpenContracts";
 import ContractBids from "./ContractBids";
-import { connectMetaMask, setMetaMaskConnected } from "../state/user/actions";
-import {
-  setWorkContractData,
-  setWorkContractFactoryData,
-} from "../state/contract/actions";
-import WorkContractFactory from "../abis/WorkContractFactory.json";
-import { ethers } from "ethers";
+import JobDetails from "./JobDetails";
 
 export default function App() {
   const theme = createTheme({
@@ -77,6 +74,10 @@ export default function App() {
             {/* <Route path='/contractBids' element={<ContractBids />} /> */}
             <Route path='/contractBids' element={<ContractBids />}>
               <Route path='/contractBids/:address' element={<ContractBids />} />
+            </Route>
+            <Route path='/bidAContract' element={<ViewOpenContracts />} />
+            <Route path='/jobDetails' element={<JobDetails />}>
+              <Route path='/jobDetails/:address' element={<JobDetails />} />
             </Route>
           </Routes>
         </div>

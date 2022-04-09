@@ -15,14 +15,7 @@ import PersonSearchIcon from "@mui/icons-material/PersonSearch";
 import Confetti from "react-confetti";
 import { newContract } from "../utils/workContractFactoryUtils";
 import * as TypeOfWork from "../utils/TypeOfWork";
-
-function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
-  return {
-    width,
-    height,
-  };
-}
+import { getWindowDimensions } from "../utils/view";
 
 export default function HireAPro() {
   const navigate = useNavigate();

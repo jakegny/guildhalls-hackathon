@@ -11,14 +11,18 @@ contract WorkContract {
 	Status status;
     Status constant initialState = Status.BIDDING;
 
+    string[] TypeOfWorkStr = [
+        "ELECTRICAL", "PLUMBING", "PROGRAMMING", "OTHER"
+    ];
 
-	TypeOfWork typeOfWork;
+
+	TypeOfWork public typeOfWork;
 
 	address client;
 	address payable worker;
 	string statementOfWork; // TODO: needs lots more thought, probably file. Hashed statement of work?
 
-  address[] biddingAddresses;
+    address[] biddingAddresses;
 	mapping(address => uint) bids;
 	uint acceptedBid;
 
@@ -42,43 +46,47 @@ contract WorkContract {
         address _client,
 				TypeOfWork tow
     ) {
-			client = _client;
-			typeOfWork = tow;
-			status = Status.BIDDING;
+        client = _client;
+				typeOfWork = tow;
+				status = Status.BIDDING;
 
-			// TODO: statementOfWork;
-	}
+				// TODO: statementOfWork;
+    }
 
-	function getStatementOfWork() public view returns (string memory) {
-			return statementOfWork;
-	}
+    function getStatementOfWork() public view returns (string memory) {
+        return statementOfWork;
+    }
 
-	function getStatus() public view returns (Status) {
-		return status;
-	}
+   function getStatus() public view returns (Status) {
+      return status;
+   }
 
-	function getRequestedDrawValue() public view returns (uint) {
-		return requestedDrawValue;
-	}
+   function getTypeOfWorkStr(uint enumIndex) public view returns (string memory) {
+      return TypeOfWorkStr[enumIndex];
+   }
 
-	function assignWorker(address payable _worker) onlyClient public  {
-		worker = _worker;
-		// TODO: event?
-	}
+	 function getRequestedDrawValue() public view returns (uint) {
+      return requestedDrawValue;
+   }
 
-	// TODO: require a verified worker token?
-	function bidWork(uint bid) public {
-		biddingAddresses.push(msg.sender);
-		bids[msg.sender] = bid;
-	}
+	 function assignWorker(address payable _worker) onlyClient public  {
+		 worker = _worker;
+		 // TODO: event?
+	 }
 
-		function getBiddingAddress() onlyClient public view returns (address[] memory) {
-				return biddingAddresses;
-		}
+	 // TODO: require a verified worker token?
+	 function bidWork(uint bid) public {
+         biddingAddresses.push(msg.sender);
+		 bids[msg.sender] = bid;
+	 }
 
-		function getBidByAddress(address bidAddress) public view returns (uint) {
-				return bids[bidAddress];
-		}
+     function getBiddingAddress() onlyClient public view returns (address[] memory) {
+         return biddingAddresses;
+     }
+
+     function getBidByAddress(address bidAddress) public view returns (uint) {
+         return bids[bidAddress];
+     }
 
 	 function acceptBid(address _worker) onlyClient public  {
 		 acceptedBid = bids[_worker];
@@ -170,4 +178,3 @@ contract WorkContract {
 		// TODO: need a way for the client to withdraw funds
 
 }
-

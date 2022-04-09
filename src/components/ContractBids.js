@@ -3,28 +3,60 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getBids } from "../utils/workContractUtils";
 import WorkContract from "../abis/WorkContract.json";
-import Web3 from "web3";
-import detectEthereumProvider from "@metamask/detect-provider";
 import { ethers } from "ethers";
+import { useInterval } from "usehooks-ts";
+
+function fetchBids(address) {
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  // https://docs.ethers.io/v5/api/signer/#VoidSigner - cannot sign
+  const signer = new ethers.VoidSigner(
+    window.ethereum.selectedAddress,
+    provider,
+  );
+  const contract = new ethers.Contract(address, WorkContract.abi, signer);
+
+  // const bids = getBids(contract);
+  return getBids(contract);
+}
 
 export default function ContractBids() {
   const { address } = useParams();
-  // const provider = await detectEthereumProvider();
-
-  // const web3 = new Web3(provider);
-  // console.log("window.ethereum", window.ethereum);
-  // const contract = new window.web3.eth.Contract(WorkContract.abi, address);
-  // useEffect(() => {
-
-  //   console.log("bids", bids);
-  // }, []);
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const contract = new ethers.Contract(address, WorkContract.abi, provider);
-
-  const bids = getBids(contract);
+  const [bids, setBids] = useState([]);
 
   // const navigate = useNavigate();
   // const dispatch = useDispatch();
+
+  useEffect(async () => {
+    const bs = await fetchBids(address);
+    setBids(bs);
+  }, []);
+
+  useInterval(
+    async () => {
+      console.log("running..");
+      const bs = await fetchBids(address);
+      setBids(bs);
+    },
+    // Delay in milliseconds or null to stop it
+    10000,
+  );
+
+  // useEffect(() => {
+  //   const intervalID = setTimeout(() => {
+  // const provider = new ethers.providers.Web3Provider(window.ethereum);
+  // // https://docs.ethers.io/v5/api/signer/#VoidSigner - cannot sign
+  // const signer = new ethers.VoidSigner(
+  //   window.ethereum.selectedAddress,
+  //   provider,
+  // );
+  // const contract = new ethers.Contract(address, WorkContract.abi, signer);
+
+  // const bids = getBids(contract);
+  //   }, 1000);
+
+  //   return () => clearInterval(intervalID);
+  // }, []);
+  console.log("bids", bids);
 
   return (
     <div>

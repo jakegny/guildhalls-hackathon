@@ -1,0 +1,313 @@
+
+> guildhalls-hackathon@0.1.0 start
+> node scripts/start.js
+
+Starting the development server...
+
+Compiled with warnings.
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/_version.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/_version.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/abi-coder.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/abi-coder.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/abstract-coder.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/abstract-coder.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/address.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/address.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/anonymous.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/anonymous.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/array.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/array.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/boolean.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/boolean.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/bytes.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/bytes.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/fixed-bytes.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/fixed-bytes.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/null.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/null.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/number.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/number.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/string.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/string.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/tuple.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/tuple.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/fragments.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/fragments.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/index.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/index.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/interface.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/interface.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@metamask/detect-provider/src/index.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@metamask/detect-provider/src/index.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/errors.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/errors.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/index.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/index.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/progress-event.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/progress-event.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/xml-http-request-event-target.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/xml-http-request-event-target.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/xml-http-request-upload.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/xml-http-request-upload.ts'
+
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/xml-http-request.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/xml-http-request.ts'
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+assets by path static/ 9.05 MiB
+  asset static/js/bundle.js 9.04 MiB [emitted] (name: main) 1 related asset
+  asset static/media/metamask.09e5f554ca7f2e9f93b4d3c237976b65.svg 3.64 KiB [emitted] (auxiliary name: main)
+asset index.html 1.67 KiB [emitted]
+asset asset-manifest.json 286 bytes [emitted]
+cached modules 8.56 MiB (javascript) 29.7 KiB (runtime) [cached] 1349 modules
+
+WARNING in ./node_modules/@ethersproject/abi/lib.esm/_version.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/_version.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/_version.ts'
+ @ ./node_modules/@ethersproject/abi/lib.esm/fragments.js 6:0-37 7:26-33
+ @ ./node_modules/@ethersproject/abi/lib.esm/index.js 3:0-117 6:0-204 6:0-204 6:0-204 6:0-204 6:0-204 6:0-204
+ @ ./node_modules/web3-eth-abi/lib/index.js 28:21-59 30:16-55
+ @ ./node_modules/web3-eth/lib/index.js 47:10-33
+ @ ./node_modules/web3/lib/index.js 34:10-29
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/@ethersproject/abi/lib.esm/abi-coder.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/abi-coder.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/abi-coder.ts'
+ @ ./node_modules/@ethersproject/abi/lib.esm/index.js 4:0-56 6:0-204 6:0-204
+ @ ./node_modules/web3-eth-abi/lib/index.js 28:21-59 30:16-55
+ @ ./node_modules/web3-eth/lib/index.js 47:10-33
+ @ ./node_modules/web3/lib/index.js 34:10-29
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/@ethersproject/abi/lib.esm/coders/abstract-coder.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/abstract-coder.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/abstract-coder.ts'
+ @ ./node_modules/@ethersproject/abi/lib.esm/abi-coder.js 8:0-57 87:15-21 91:15-21
+ @ ./node_modules/@ethersproject/abi/lib.esm/index.js 4:0-56 6:0-204 6:0-204
+ @ ./node_modules/web3-eth-abi/lib/index.js 28:21-59 30:16-55
+ @ ./node_modules/web3-eth/lib/index.js 47:10-33
+ @ ./node_modules/web3/lib/index.js 34:10-29
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/@ethersproject/abi/lib.esm/coders/address.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/address.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/address.ts'
+ @ ./node_modules/@ethersproject/abi/lib.esm/abi-coder.js 9:0-48 30:19-31
+ @ ./node_modules/@ethersproject/abi/lib.esm/index.js 4:0-56 6:0-204 6:0-204
+ @ ./node_modules/web3-eth-abi/lib/index.js 28:21-59 30:16-55
+ @ ./node_modules/web3-eth/lib/index.js 47:10-33
+ @ ./node_modules/web3/lib/index.js 34:10-29
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/@ethersproject/abi/lib.esm/coders/anonymous.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/anonymous.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/anonymous.ts'
+ @ ./node_modules/@ethersproject/abi/lib.esm/coders/array.js 7:0-45 215:22-36
+ @ ./node_modules/@ethersproject/abi/lib.esm/abi-coder.js 10:0-44 42:19-29
+ @ ./node_modules/@ethersproject/abi/lib.esm/index.js 4:0-56 6:0-204 6:0-204
+ @ ./node_modules/web3-eth-abi/lib/index.js 28:21-59 30:16-55
+ @ ./node_modules/web3-eth/lib/index.js 47:10-33
+ @ ./node_modules/web3/lib/index.js 34:10-29
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/@ethersproject/abi/lib.esm/coders/array.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/array.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/array.ts'
+ @ ./node_modules/@ethersproject/abi/lib.esm/abi-coder.js 10:0-44 42:19-29
+ @ ./node_modules/@ethersproject/abi/lib.esm/index.js 4:0-56 6:0-204 6:0-204
+ @ ./node_modules/web3-eth-abi/lib/index.js 28:21-59 30:16-55
+ @ ./node_modules/web3-eth/lib/index.js 47:10-33
+ @ ./node_modules/web3/lib/index.js 34:10-29
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/@ethersproject/abi/lib.esm/coders/boolean.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/boolean.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/boolean.ts'
+ @ ./node_modules/@ethersproject/abi/lib.esm/abi-coder.js 11:0-48 33:19-31
+ @ ./node_modules/@ethersproject/abi/lib.esm/index.js 4:0-56 6:0-204 6:0-204
+ @ ./node_modules/web3-eth-abi/lib/index.js 28:21-59 30:16-55
+ @ ./node_modules/web3-eth/lib/index.js 47:10-33
+ @ ./node_modules/web3/lib/index.js 34:10-29
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/@ethersproject/abi/lib.esm/coders/bytes.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/bytes.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/bytes.ts'
+ @ ./node_modules/@ethersproject/abi/lib.esm/abi-coder.js 12:0-44 39:19-29
+ @ ./node_modules/@ethersproject/abi/lib.esm/index.js 4:0-56 6:0-204 6:0-204
+ @ ./node_modules/web3-eth-abi/lib/index.js 28:21-59 30:16-55
+ @ ./node_modules/web3-eth/lib/index.js 47:10-33
+ @ ./node_modules/web3/lib/index.js 34:10-29
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/@ethersproject/abi/lib.esm/coders/fixed-bytes.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/fixed-bytes.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/fixed-bytes.ts'
+ @ ./node_modules/@ethersproject/abi/lib.esm/abi-coder.js 13:0-55 76:17-32
+ @ ./node_modules/@ethersproject/abi/lib.esm/index.js 4:0-56 6:0-204 6:0-204
+ @ ./node_modules/web3-eth-abi/lib/index.js 28:21-59 30:16-55
+ @ ./node_modules/web3-eth/lib/index.js 47:10-33
+ @ ./node_modules/web3/lib/index.js 34:10-29
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/@ethersproject/abi/lib.esm/coders/null.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/null.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/null.ts'
+ @ ./node_modules/@ethersproject/abi/lib.esm/abi-coder.js 14:0-42 50:19-28
+ @ ./node_modules/@ethersproject/abi/lib.esm/index.js 4:0-56 6:0-204 6:0-204
+ @ ./node_modules/web3-eth-abi/lib/index.js 28:21-59 30:16-55
+ @ ./node_modules/web3-eth/lib/index.js 47:10-33
+ @ ./node_modules/web3/lib/index.js 34:10-29
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/@ethersproject/abi/lib.esm/coders/number.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/number.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/number.ts'
+ @ ./node_modules/@ethersproject/abi/lib.esm/abi-coder.js 15:0-46 63:17-28
+ @ ./node_modules/@ethersproject/abi/lib.esm/index.js 4:0-56 6:0-204 6:0-204
+ @ ./node_modules/web3-eth-abi/lib/index.js 28:21-59 30:16-55
+ @ ./node_modules/web3-eth/lib/index.js 47:10-33
+ @ ./node_modules/web3/lib/index.js 34:10-29
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/@ethersproject/abi/lib.esm/coders/string.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/string.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/string.ts'
+ @ ./node_modules/@ethersproject/abi/lib.esm/abi-coder.js 16:0-46 36:19-30
+ @ ./node_modules/@ethersproject/abi/lib.esm/index.js 4:0-56 6:0-204 6:0-204
+ @ ./node_modules/web3-eth-abi/lib/index.js 28:21-59 30:16-55
+ @ ./node_modules/web3-eth/lib/index.js 47:10-33
+ @ ./node_modules/web3/lib/index.js 34:10-29
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/@ethersproject/abi/lib.esm/coders/tuple.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/tuple.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/coders/tuple.ts'
+ @ ./node_modules/@ethersproject/abi/lib.esm/abi-coder.js 17:0-44 45:19-29 109:22-32 119:22-32
+ @ ./node_modules/@ethersproject/abi/lib.esm/index.js 4:0-56 6:0-204 6:0-204
+ @ ./node_modules/web3-eth-abi/lib/index.js 28:21-59 30:16-55
+ @ ./node_modules/web3-eth/lib/index.js 47:10-33
+ @ ./node_modules/web3/lib/index.js 34:10-29
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/@ethersproject/abi/lib.esm/fragments.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/fragments.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/fragments.ts'
+ @ ./node_modules/@ethersproject/abi/lib.esm/index.js 3:0-117 6:0-204 6:0-204 6:0-204 6:0-204 6:0-204 6:0-204
+ @ ./node_modules/web3-eth-abi/lib/index.js 28:21-59 30:16-55
+ @ ./node_modules/web3-eth/lib/index.js 47:10-33
+ @ ./node_modules/web3/lib/index.js 34:10-29
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/@ethersproject/abi/lib.esm/index.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/index.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/index.ts'
+ @ ./node_modules/web3-eth-abi/lib/index.js 28:21-59 30:16-55
+ @ ./node_modules/web3-eth/lib/index.js 47:10-33
+ @ ./node_modules/web3/lib/index.js 34:10-29
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/@ethersproject/abi/lib.esm/interface.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/interface.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@ethersproject/abi/src.ts/interface.ts'
+ @ ./node_modules/@ethersproject/abi/lib.esm/index.js 5:0-108 6:0-204 6:0-204 6:0-204 6:0-204 6:0-204
+ @ ./node_modules/web3-eth-abi/lib/index.js 28:21-59 30:16-55
+ @ ./node_modules/web3-eth/lib/index.js 47:10-33
+ @ ./node_modules/web3/lib/index.js 34:10-29
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/@metamask/detect-provider/dist/index.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@metamask/detect-provider/src/index.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/@metamask/detect-provider/src/index.ts'
+ @ ./src/index.js 12:0-63
+
+WARNING in ./node_modules/xhr2-cookies/dist/errors.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/errors.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/errors.ts'
+ @ ./node_modules/xhr2-cookies/dist/xml-http-request.js 47:15-34
+ @ ./node_modules/xhr2-cookies/dist/index.js 11:9-38
+ @ ./node_modules/web3-providers-http/lib/index.js 27:11-49
+ @ ./node_modules/web3-core-requestmanager/lib/index.js 56:16-46
+ @ ./node_modules/web3-core/lib/index.js 23:23-58
+ @ ./node_modules/web3/lib/index.js 32:11-31
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/xhr2-cookies/dist/index.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/index.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/index.ts'
+ @ ./node_modules/web3-providers-http/lib/index.js 27:11-49
+ @ ./node_modules/web3-core-requestmanager/lib/index.js 56:16-46
+ @ ./node_modules/web3-core/lib/index.js 23:23-58
+ @ ./node_modules/web3/lib/index.js 32:11-31
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/xhr2-cookies/dist/progress-event.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/progress-event.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/progress-event.ts'
+ @ ./node_modules/xhr2-cookies/dist/xml-http-request.js 45:23-50
+ @ ./node_modules/xhr2-cookies/dist/index.js 11:9-38
+ @ ./node_modules/web3-providers-http/lib/index.js 27:11-49
+ @ ./node_modules/web3-core-requestmanager/lib/index.js 56:16-46
+ @ ./node_modules/web3-core/lib/index.js 23:23-58
+ @ ./node_modules/web3/lib/index.js 32:11-31
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/xhr2-cookies/dist/xml-http-request-event-target.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/xml-http-request-event-target.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/xml-http-request-event-target.ts'
+ @ ./node_modules/xhr2-cookies/dist/index.js 13:38-80
+ @ ./node_modules/web3-providers-http/lib/index.js 27:11-49
+ @ ./node_modules/web3-core-requestmanager/lib/index.js 56:16-46
+ @ ./node_modules/web3-core/lib/index.js 23:23-58
+ @ ./node_modules/web3/lib/index.js 32:11-31
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/xhr2-cookies/dist/xml-http-request-upload.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/xml-http-request-upload.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/xml-http-request-upload.ts'
+ @ ./node_modules/xhr2-cookies/dist/xml-http-request.js 51:32-68
+ @ ./node_modules/xhr2-cookies/dist/index.js 11:9-38
+ @ ./node_modules/web3-providers-http/lib/index.js 27:11-49
+ @ ./node_modules/web3-core-requestmanager/lib/index.js 56:16-46
+ @ ./node_modules/web3-core/lib/index.js 23:23-58
+ @ ./node_modules/web3/lib/index.js 32:11-31
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+WARNING in ./node_modules/xhr2-cookies/dist/xml-http-request.js
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/xml-http-request.ts' file: Error: ENOENT: no such file or directory, open '/Users/jakegny/Projects/guildhalls-hackathon/node_modules/xhr2-cookies/xml-http-request.ts'
+ @ ./node_modules/xhr2-cookies/dist/index.js 11:9-38
+ @ ./node_modules/web3-providers-http/lib/index.js 27:11-49
+ @ ./node_modules/web3-core-requestmanager/lib/index.js 56:16-46
+ @ ./node_modules/web3-core/lib/index.js 23:23-58
+ @ ./node_modules/web3/lib/index.js 32:11-31
+ @ ./src/components/App.js 11:0-24 50:22-26 50:27-45
+ @ ./src/index.js 7:0-35 22:35-38
+
+23 warnings have detailed information that is not shown.
+Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.
+
+webpack 5.72.0 compiled with 23 warnings in 1453 ms

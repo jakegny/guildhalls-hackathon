@@ -8,9 +8,10 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
-import { getContractsForClient } from "../utils/workContractFactoryUtils";
+import { getOpenContracts } from "../utils/workContractFactoryUtils";
 
-const card = (contract, handleClick) => {
+const card = (contract, navigate) => {
+  // TODO: make a full contract?
   return (
     <React.Fragment>
       <Card sx={{ background: "gray" }}>
@@ -33,8 +34,8 @@ const card = (contract, handleClick) => {
           >
             View on Explorer
           </Button>
-          <Button size='small' onClick={handleClick}>
-            See Bids
+          <Button size='small' onClick={() => navigate("/jobDetails")}>
+            Job Details
           </Button>
         </CardActions>
       </Card>
@@ -42,36 +43,30 @@ const card = (contract, handleClick) => {
   );
 };
 
-export default function HireAPro() {
-  const userAddress = useSelector(state => state?.user?.userAddress);
-  const [openContracts, setOpenContracts] = useState([]); // TODO: move to redux
+export default function ViewOpenContracts() {
+  const [openContracts, setOpenContracts] = useState([]);
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
-  const handleClick = c => () => {
-    console.log("c", c);
-    navigate(`/contractBids/${c}`);
-  };
-
+  // get open contracts
   useEffect(async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
-    // console.log(window.ethereum.selectedAddress);
     if (!window.ethereum.selectedAddress) return;
-    const oc = await getContractsForClient(window.ethereum.selectedAddress);
-
-    // // TODO: loadWorkContracts
-    // const newOc = oc.map(c => {
-    //   return new window.web3.eth.Contract(WorkContract.abi, c);
-    // });
+    const oc = await getOpenContracts();
 
     setOpenContracts(oc);
-  }, [userAddress]);
+  }, []);
+
+  const handleClick = c => () => {
+    console.log("c", c);
+    navigate(`/jobDetails/${c}`);
+  };
 
   return (
     <div>
-      <h1>My Contracts</h1>
+      <h1>Open Contracts</h1>
+      {/* TODO: filter on applicabale to the logged in user (using NFT) */}
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}

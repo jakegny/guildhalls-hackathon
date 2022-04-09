@@ -61,7 +61,7 @@ export default function Home() {
               mx: 5,
               my: 2,
             }}
-            onClick={() => console.log("manage work")}
+            onClick={() => navigate("/bidAContract")}
             alignItems='center'
             justifyContent='center'
           >
