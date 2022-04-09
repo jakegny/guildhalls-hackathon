@@ -69,10 +69,10 @@ function BidCard({ bidder }) {
           p: 1,
           alignItems: "center",
           justifyContent: "center",
-          background: "darkgrey",
+          background: "white",
           margin: "auto",
-          width: 300,
-          height: 300,
+          width: "50%",
+          height: "50%",
         }}
         container={() => rootRef.current}
       >
@@ -194,10 +194,10 @@ function AcceptedBidCard({ bidder, workContractAddress }) {
           p: 1,
           alignItems: "center",
           justifyContent: "center",
-          background: "darkgrey",
+          background: "white",
           margin: "auto",
-          width: 300,
-          height: 300,
+          width: "50%",
+          height: "50%",
         }}
         container={() => rootRef.current}
       >

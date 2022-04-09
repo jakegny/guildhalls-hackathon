@@ -112,9 +112,9 @@ export default function HireAPro() {
           {}
         </Box>
       </Modal>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
+      <Box sx={{ flexGrow: 1 }} classes={{ display: "flex" }}>
+        <Grid container spacing={2} columns>
+          <Grid item xs={12} md={6} align='center'>
             <Card
               sx={{
                 minWidth: 250,
@@ -123,20 +123,22 @@ export default function HireAPro() {
                 my: 2,
               }}
               onClick={() => console.log("looking to hire")}
-              alignItems='center'
-              justifyContent='center'
             >
-              <CardContent>
+              <CardContent
+                classes={{ alignItems: "center", justifyContent: "center" }}
+              >
                 <PersonSearchIcon
                   sx={{
                     width: 100,
                     height: 100,
+                    display: "block",
+                    m: "auto",
                   }}
                 />
-                <Typography variant='h5' component='div'>
+                <Typography variant='h5' component='div' align='center'>
                   What type of work do you need one?
                 </Typography>
-                <InputLabel id='demo-simple-select-label'>
+                <InputLabel id='demo-simple-select-label' align='center'>
                   Type Of Work
                 </InputLabel>
                 <Select
@@ -145,11 +147,13 @@ export default function HireAPro() {
                   value={typeOfWork}
                   label='Type Of Work'
                   onChange={handleChange}
+                  alignItems='center'
                 >
                   {Object.keys(TypeOfWork).map(k => (
                     <MenuItem value={TypeOfWork[k]}>{k.toTitleCase()}</MenuItem>
                   ))}
                 </Select>
+
                 <Button
                   key={"postContract"}
                   onClick={async () => {

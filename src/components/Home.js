@@ -37,20 +37,24 @@ export default function Home() {
             onClick={() => {
               navigate("/hireAPro");
             }}
-            alignItems='center'
-            justifyContent='center'
           >
-            <CardContent>
+            <div
+              style={{
+                paddingTop: 20,
+              }}
+            >
               <PersonSearchIcon
                 sx={{
                   width: 100,
                   height: 100,
+                  display: "block",
+                  m: "auto",
                 }}
               />
-              <Typography variant='h5' component='div'>
+              <Typography variant='h5' component='div' align='center'>
                 Hire a professional
               </Typography>
-            </CardContent>
+            </div>
           </Card>
         </Grid>
         <Grid item xs={12} md={6}>
@@ -60,22 +64,28 @@ export default function Home() {
               minHeight: 200,
               mx: 5,
               my: 2,
+              alignItems: "center",
+              justifyContent: "center",
             }}
             onClick={() => navigate("/bidAContract")}
-            alignItems='center'
-            justifyContent='center'
           >
-            <CardContent>
+            <div
+              style={{
+                paddingTop: 20,
+              }}
+            >
               <WorkIcon
                 sx={{
                   width: 100,
                   height: 100,
+                  display: "block",
+                  m: "auto",
                 }}
               />
-              <Typography variant='h5' component='div'>
+              <Typography variant='h5' component='div' align='center'>
                 Bid Jobs
               </Typography>
-            </CardContent>
+            </div>
           </Card>
         </Grid>
       </Grid>
